@@ -17,7 +17,7 @@ npm install && npm run dev                # dashboard on :5173
 ```
 BullMQ live dashboard: http://localhost:4000/admin/queues
 
-## Demo link: will be updated in an hour
+## Demo link: https://drive.google.com/file/d/1hcl17yDrPuffNQ3LAr0Nf9P1iNDMgb0M/view?usp=sharing
 
 ## Screenshots: https://drive.google.com/drive/folders/1DFttJ0A4oKq7S8khfLzjPrL6AxS1u355?usp=sharing
 
