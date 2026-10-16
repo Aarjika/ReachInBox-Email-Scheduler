@@ -19,7 +19,7 @@ BullMQ live dashboard: http://localhost:4000/admin/queues
 
 ## Demo link: will be updated in an hour
 
-## Screenshots: https://drive.google.com/drive/folders/1BKcpfT3LtF1Fn-vfNB3Y-l1H5iVLy2F8?usp=sharing
+## Screenshots: https://drive.google.com/drive/folders/1DFttJ0A4oKq7S8khfLzjPrL6AxS1u355?usp=sharing
 
 ## Architecture
 
