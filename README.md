@@ -94,9 +94,9 @@ BullMQ live dashboard: http://localhost:4000/admin/queues
 
 These mechanisms improve resilience but are not a guarantee of exactly-once email delivery. A process failure during an external SMTP operation can leave uncertainty about whether a recipient received a message. Production-grade delivery would need additional recovery and observability controls.
 
-## Demo link:
+## Demo link: will be updated in an hour
 
-## Screenshots
+## Screenshots: will be updated shortly
 
 
 ## Installation
