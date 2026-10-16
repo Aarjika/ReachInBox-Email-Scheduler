@@ -31,26 +31,6 @@ BullMQ live dashboard: http://localhost:4000/admin/queues
 10. **Elasticsearch:** every email is indexed on schedule and re-indexed on sent/failed. Search: `GET /api/emails/search?q=text` (logged-in session).
 11. **Auth:** real Google OAuth; JWT in an httpOnly cookie.
 
-At a high level, the application follows this flow:
-
-React + Vite dashboard
-        |
-        | HTTP requests / cookie session
-        v
-Express + TypeScript API
-   |         |          |
-   v         v          v
-PostgreSQL  Elasticsearch  BullMQ queue
-                           |
-                           v
-                       Redis
-                           |
-                           v
-                    Background worker
-                           |
-                           v
-                  Ethereal or SMTP server
-
 ## Features
 
 1. **Email scheduling:** Schedule an email for a future time and stagger recipient delivery with a configurable delay.
@@ -71,42 +51,28 @@ PostgreSQL  Elasticsearch  BullMQ queue
 
 > **Important:** Ethereal is a testing service. Messages sent through Ethereal are captured for preview and are not delivered to recipients' real inboxes. Real delivery requires a properly configured SMTP provider.
 
-## Tech Stack
+**TechStack**
 
-  -----------------------------------------------------------------------
-  Area                    Technology              Purpose
-  ----------------------- ----------------------- -----------------------
-  Frontend                React 18, TypeScript,   Dashboard and compose
-                          Vite                    interface
-
-  Styling                 Tailwind CSS 4          UI styling and design
-                                                  tokens
-
-  Backend                 Node.js, Express 4,     HTTP API and
-                          TypeScript              application logic
-
-  Database                PostgreSQL 16           Users, email records,
-                                                  senders, attachments
-
-  Queue and cache         Redis 7, BullMQ 5       Delayed jobs, worker
-                                                  coordination, rate
-                                                  counters
-
-  Search                  Elasticsearch 8         Full-text email search
-
-  Authentication          Google OAuth, JWT,      User sign-in and
-                          HTTP-only cookie        session cookie
-
-  Email transport         Nodemailer, Ethereal    Message
-                          SMTP, optional SMTP     delivery/testing
-                          provider                
-
-  Notifications           Slack OAuth v2 and      Hourly-limit
-                          incoming webhooks       notifications
-
-  Local infrastructure    Docker Compose          PostgreSQL, Redis,
-                                                  Elasticsearch
-  -----------------------------------------------------------------------
+1. **Frontend**
+   Technology: React 18, TypeScript, Vite, Purpose: Dashboard and compose interface
+2. **Styling**
+   Technology: Tailwind CSS 4, Purpose: UI styling and design tokens
+3. **Backend**
+   Technology: Node.js, Express 4, TypeScript, Purpose: HTTP API and application logic
+4. **Database**
+   Technology: PostgreSQL 16, Purpose: Users, email records, senders, attachments
+5. **Queue and cache**
+   Technology: Redis 7, BullMQ 5, Purpose: Delayed jobs, worker coordination, rate counters
+6. **Search**
+   Technology: Elasticsearch 8, Purpose: Full-text email search
+7. **Authentication**
+   Technology: Google OAuth, JWT, HTTP-only cookie, Purpose: User sign-in and session cookie
+8. **Email transport**
+   Technology: Nodemailer, Ethereal SMTP, optional SMTP provider, Purpose: Message delivery/testing
+9. **Notifications**
+   Technology: Slack OAuth v2 and incoming webhooks, Purpose: Hourly-limit notifications
+10. **Local infrastructure**
+   Technology: Docker Compose, Purpose: PostgreSQL, Redis, Elasticsearch
 
 
 ## Scheduling lifecycle
@@ -132,25 +98,8 @@ These mechanisms improve resilience but are not a guarantee of exactly-once emai
 
 ## Screenshots
 
-Recommended assets:
 
-  ----------------------------------------------------------------------------
-  File                                     What to capture
-  ---------------------------------------- -----------------------------------
-  `docs/screenshots/login.png`             Login screen
-
-  `docs/screenshots/dashboard.png`         Main dashboard and email status
-                                           tabs
-
-  `docs/screenshots/compose.png`           Compose form, recipient count,
-                                           attachments
-
-  `docs/screenshots/search.png`            Search results
-
-  `docs/screenshots/queue-dashboard.png`   Bull Board queue view
-  ----------------------------------------------------------------------------
-
-  ## Installation
+## Installation
 
 ## Prerequisites
 
@@ -304,14 +253,12 @@ Cookie: token=<session-cookie>
   "hourlyLimit": 50,
   "attachments": []
 }
-```
-
 Example response:
-
-``` json
+json
 {
   "scheduled": 2
 }
+```
 
 ### Known trade-offs and limitations
 
@@ -338,8 +285,7 @@ The project is intended to use the **MIT License**.
 
 ## Feedback
 
-Feedback and suggestions are welcome. For now, use the author's GitHub
-profile to get in touch:
+Feedback and suggestions are welcome.
 
 -   GitHub: [@Aarjika](https://github.com/Aarjika)
 -   LinkedIn: [Aarjika
