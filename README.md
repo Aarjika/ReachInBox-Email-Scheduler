@@ -17,6 +17,10 @@ npm install && npm run dev                # dashboard on :5173
 ```
 BullMQ live dashboard: http://localhost:4000/admin/queues
 
+## Demo link: will be updated in an hour
+
+## Screenshots: https://drive.google.com/drive/folders/1BKcpfT3LtF1Fn-vfNB3Y-l1H5iVLy2F8?usp=sharing
+
 ## Architecture
 
 1. **Scheduling:** `POST /api/emails/schedule` stores one row per recipient in Postgres (`status=scheduled`) and adds one **BullMQ delayed job** per row (`delay = scheduled_at - now`). Email *i* is scheduled at `start + i * delay`. No cron anywhere.
@@ -93,10 +97,6 @@ BullMQ live dashboard: http://localhost:4000/admin/queues
 4.  A conditional database status update prevents multiple workers from claiming the same scheduled record simultaneously.
 
 These mechanisms improve resilience but are not a guarantee of exactly-once email delivery. A process failure during an external SMTP operation can leave uncertainty about whether a recipient received a message. Production-grade delivery would need additional recovery and observability controls.
-
-## Demo link: will be updated in an hour
-
-## Screenshots: will be updated shortly
 
 
 ## Installation
