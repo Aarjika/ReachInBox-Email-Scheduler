@@ -273,9 +273,8 @@ json
 
 ## Acknowledgements
 
-1.  **Outbox Labs** for providing the project assignment.
-2.  The maintainers of the open-source technologies used in this project.
-3.  The documentation teams behind Node.js, React, TypeScript, PostgreSQL, Redis, BullMQ, and Elasticsearch.
+1.  The maintainers of the open-source technologies used in this project.
+2.  The documentation teams behind Node.js, React, TypeScript, PostgreSQL, Redis, BullMQ, and Elasticsearch.
 
 
 ## License
